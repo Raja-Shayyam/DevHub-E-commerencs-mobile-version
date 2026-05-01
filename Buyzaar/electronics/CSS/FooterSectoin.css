@@ -1,0 +1,8 @@
+.nav-footer:hover {
+  color: #00b7ff !important;
+  text-decoration: underline solid white 2px !important;
+}
+
+.list-unstyled li i{
+  margin-right: 5px;
+}

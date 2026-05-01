@@ -1,0 +1,75 @@
+
+
+:root {
+  --primary-blue: #0D6EFD;
+  --bg-gray: #EFF2F4;
+  --text-dark: #1C1C1C;
+  --text-muted: #8B96A5;
+}
+
+body {
+  background-color: var(--bg-gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+}
+
+.cursor-pointer { cursor: pointer; }
+
+/* Header & Navbar */
+.header-actions p { font-size: 12px; margin-bottom: 0; color: var(--text-muted); }
+.search-btn { background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%); }
+
+/* Hero Section */
+.hero-menu li { padding: 10px 15px; border-radius: 6px; cursor: pointer; color: #505050; font-size: 16px; transition: 0.3s; }
+.hero-menu li.active { background: #E5F1FF; font-weight: 600; color: var(--text-dark); }
+.hero-menu li:hover:not(.active) { background: #f8f9fa; }
+
+.hero-banner { 
+  /* background: #E3F0FF url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover; */
+  background: #E3F0FF url('../public/15bee8c1b9d77e50133ea130b3270887efd96310.png') no-repeat center/cover;
+}
+
+.user-welcome { background: #E3F0FF; }
+.avatar-circle { width: 44px; height: 44px; background: #91B1E7; border-radius: 50%; }
+.bg-orange { background-color: #F38332; }
+.bg-teal { background-color: #55BDC4; }
+.promo-card { font-size: 16px; line-height: 1.2; }
+
+/* Deals Section */
+.time-box { 
+  background: #606060; color: white; width: 45px; height: 50px; 
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: 4px; font-weight: 700; font-size: 16px;
+}
+.time-box span { font-size: 12px; font-weight: 400; opacity: 0.8; }
+.placeholder-img { background: #F7F7F7; height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+.min-w-150 { min-width: 150px; }
+
+/* Inquiry */
+.inquiry-banner {
+  background-image:linear-gradient(94.99deg, #2C7CF1 7.19%, rgba(0, 209, 255, 0.5) 89.49%),url('../src/assets/4e80e83fe745e5ac4af0470ed5521db4af955316.png');
+}
+
+/* Extra Services */
+.service-icon-badge {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 55px;
+  height: 55px;
+  background: #D1E7FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Region */
+.flag-circle { width: 24px; height: 24px; border-radius: 50%; }
+.smaller { font-size: 13px; }
+
+/* Footer */
+.social-icon { width: 32px; height: 32px; background: #BDC4CD; border-radius: 50%; cursor: pointer; }
+.app-store-btn { cursor: pointer; transition: 0.3s; }
+.app-store-btn:hover { opacity: 0.8; }

@@ -1,0 +1,117 @@
+@startuml uml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Customer
+actor Admin
+actor "Payment Gateway" as Payment
+actor "Email System" as Email
+
+rectangle "E-Commerce System" {
+  
+  rectangle "User Module" {
+    usecase UC1 as "Register Account"
+    usecase UC2 as "Login/Logout"
+    usecase UC3 as "Recover Password"
+    usecase UC4 as "View Profile"
+    usecase UC5 as "Update Profile"
+    usecase UC6 as "Update Avatar & Address"
+  }
+  
+  rectangle "Product Module" {
+    usecase UC7 as "Browse Products"
+    usecase UC8 as "Search Products"
+    usecase UC9 as "Filter Products"
+    usecase UC10 as "View Product Details"
+    usecase UC11 as "View Reviews"
+  }
+  
+  rectangle "Cart & Checkout" {
+    usecase UC12 as "Add to Cart"
+    usecase UC13 as "Remove from Cart"
+    usecase UC14 as "Update Cart Quantity"
+    usecase UC15 as "View Cart"
+    usecase UC16 as "Checkout"
+    usecase UC17 as "Enter Shipping Address"
+    usecase UC18 as "Make Payment"
+    usecase UC19 as "View Order Summary"
+  }
+  
+  rectangle "Order Management" {
+    usecase UC20 as "View Order History"
+    usecase UC21 as "View Order Details"
+    usecase UC22 as "Track Order Status"
+  }
+  
+  rectangle "Admin Module" {
+    usecase UC23 as "Manage Products"
+    usecase UC24 as "Add Product"
+    usecase UC25 as "Edit Product"
+    usecase UC26 as "Delete Product"
+    usecase UC27 as "Manage Categories"
+    usecase UC28 as "Manage Stock Levels"
+    usecase UC29 as "View All Orders"
+    usecase UC30 as "Update Order Status"
+    usecase UC31 as "Generate Sales Reports"
+    usecase UC32 as "View Revenue Summary"
+  }
+  
+  rectangle "Notification System" {
+    usecase UC33 as "Send Registration Email"
+    usecase UC34 as "Send Order Confirmation"
+    usecase UC35 as "Send Shipment Updates"
+  }
+}
+
+Customer --> UC1
+Customer --> UC2
+Customer --> UC3
+Customer --> UC4
+Customer --> UC5
+Customer --> UC6
+Customer --> UC7
+Customer --> UC8
+Customer --> UC9
+Customer --> UC10
+Customer --> UC11
+Customer --> UC12
+Customer --> UC13
+Customer --> UC14
+Customer --> UC15
+Customer --> UC16
+Customer --> UC17
+Customer --> UC18
+Customer --> UC19
+Customer --> UC20
+Customer --> UC21
+Customer --> UC22
+
+Admin --> UC2
+Admin --> UC23
+Admin --> UC24
+Admin --> UC25
+Admin --> UC26
+Admin --> UC27
+Admin --> UC28
+Admin --> UC29
+Admin --> UC30
+Admin --> UC31
+Admin --> UC32
+
+UC18 --> Payment
+UC33 --> Email
+UC34 --> Email
+UC35 --> Email
+
+UC16 .> UC17 : include
+UC16 .> UC18 : include
+UC16 .> UC19 : include
+UC23 .> UC24 : include
+UC23 .> UC25 : include
+UC23 .> UC26 : include
+
+UC1 .> UC33 : extend
+UC18 .> UC34 : extend
+UC30 .> UC35 : extend
+
+@enduml

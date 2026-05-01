@@ -1,0 +1,102 @@
+/* ===== Navbar Base ===== */
+.custom-navbar {
+  background: linear-gradient(90deg, #0a0a0a, #121212 40%, #0d0d0d);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* ===== Brand ===== */
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+.brand-text span {
+  color: #00b7ff;
+}
+.text-primary-glow {
+  color: #00b7ff;
+  filter: drop-shadow(0 0 6px #00b7ff);
+}
+
+/* ===== Links ===== */
+.nav-links .nav-link {
+  color: #ddd !important;
+  margin: 0 1rem;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
+  color: #00b7ff !important;
+}
+
+.nav-links .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #00b7ff;
+  box-shadow: 0 0 8px #00b7ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links .nav-link:hover::after,
+.nav-links .nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== Buttons ===== */
+.glass-btn {
+  backdrop-filter: blur(6px);
+  background: rgba(0, 183, 255, 0.1);
+  border: 1px solid rgba(0, 183, 255, 0.4);
+  color: #00b7ff !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.glass-btn:hover {
+  background: rgba(0, 183, 255, 0.3);
+  box-shadow: 0 0 10px #00b7ff;
+}
+
+/* ===== Cart ===== */
+.glass-cart {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 183, 255, 0.3);
+  color: #00b7ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.glass-cart:hover {
+  box-shadow: 0 0 10px #00b7ff;
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff003c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+/* ===== Mobile Toggle ===== */
+.toggle-btn {
+  border: none !important;
+  background: transparent !important;
+}
+.toggle-btn:focus {
+  box-shadow: none;
+}

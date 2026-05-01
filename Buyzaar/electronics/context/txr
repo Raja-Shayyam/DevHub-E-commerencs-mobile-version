@@ -1,0 +1,275 @@
+  const products = [
+    {
+      id: 1,
+      name: "Classic Cotton Shirt",
+      category: "Shirts",
+      price: "3,499",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1625934672939-3798deedf2eb?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=627",
+      rating: 4.3,
+      description:
+        "A timeless cotton shirt crafted for comfort and breathability. Perfect for both casual and semi-formal looks.",
+      comments: [
+        "Super soft and fits really well!",
+        "Good quality fabric for the price.",
+        "Would recommend for daily wear."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1625934672899-3798deedf2ea?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1618354696397-1a507d8bb1ce?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1620331311529-d4bbff798b14?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 2,
+      name: "Slim Fit Denim Shirt",
+      category: "Shirts",
+      price: "4,199",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1630355734650-55fe91e1e5c7?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1171",
+      rating: 4.6,
+      description:
+        "A premium slim-fit denim shirt with a modern finish. Stylish and durable for every occasion.",
+      comments: [
+        "Looks great with jeans!",
+        "Denim texture feels premium.",
+        "Color stays even after multiple washes."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1589383568883-cbe16ee7c4c6?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1605993403794-0e2e5f2c8742?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1620812099440-cf0b4dfe96e0?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 3,
+      name: "Rolex Submariner Automatic Watch",
+      category: "Watches",
+      price: "2,750,000",
+      qty: 1,
+      img: "https://dgh-jewellers.com/cdn/shop/files/IMG_8884_900x.jpg?v=1728397593",
+      rating: 4.9,
+      description:
+        "Iconic luxury diving watch with precision Swiss automatic movement and timeless craftsmanship.",
+      comments: [
+        "An absolute masterpiece!",
+        "The detail and shine are unmatched.",
+        "Worth every penny."
+      ],
+      gallery: [
+        "https://dgh-jewellers.com/cdn/shop/files/IMG_8891_900x.jpg?v=1728397593",
+        "https://dgh-jewellers.com/cdn/shop/files/IMG_8879_900x.jpg?v=1728397593",
+        "https://dgh-jewellers.com/cdn/shop/files/IMG_8882_900x.jpg?v=1728397593"
+      ]
+    },
+    {
+      id: 4,
+      name: "Zip-Up Fleece Hoodie",
+      category: "Hoodies",
+      price: "4,799",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1661110546899-732bffb4cb85?auto=format&fit=crop&q=80&w=880",
+      rating: 4.2,
+      description:
+        "Warm and cozy fleece hoodie ideal for chilly evenings. Designed with soft lining and durable zippers.",
+      comments: [
+        "Very soft interior!",
+        "A bit loose fit but comfy.",
+        "Perfect for winters."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1627044836811-04f9d8ee0b4b?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1634220760081-54f97bd7859e?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1627574685267-5bfc321c99d1?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 5,
+      name: "Luxury Leather Watch",
+      category: "Watches",
+      price: "18,999",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1701532387119-7ef6c3de106f?auto=format&fit=crop&q=80&w=687",
+      rating: 4.5,
+      description:
+        "Elegant timepiece featuring a genuine leather strap and precise quartz movement.",
+      comments: [
+        "Looks way more expensive than it is!",
+        "Excellent finish and comfort.",
+        "Goes well with formals."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1601218871752-7a65a93e8c38?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1601132355985-bcf371efbba7?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 6,
+      name: "Minimalist Silver Watch",
+      category: "Watches",
+      price: "12,499",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1607299008952-7179a3f826f7?auto=format&fit=crop&q=80&w=1074",
+      rating: 4.4,
+      description:
+        "A clean, minimalist design with polished silver finishing and accurate Japanese movement.",
+      comments: [
+        "Stylish and light on the wrist.",
+        "Perfect minimalist piece.",
+        "Great for office wear."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1518544801958-efcbf8a7ec10?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1625662176000-47a49c43d85d?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1579321956672-f7a88d2ac3e0?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 7,
+      name: "Graphic Streetwear Hoodie",
+      category: "Hoodies",
+      price: "6,099",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1639005077913-b2f9eb7e6ead?auto=format&fit=crop&q=80&w=800",
+      rating: 4.7,
+      description:
+        "Trendy streetwear hoodie with high-quality graphic prints. Made from durable and breathable cotton blend.",
+      comments: [
+        "Cool graphics!",
+        "Quality print that doesn’t fade.",
+        "Stylish and fits perfectly."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1634193291033-dbb94c88a989?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1634076081818-b57e7a4cb934?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1634224462444-cbca40b99e5d?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 8,
+      name: "Formal White Shirt",
+      category: "Formal Shirts",
+      price: "3,199",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1602810319250-a663f0af2f75?auto=format&fit=crop&q=80&w=800",
+      rating: 4.5,
+      description:
+        "Elegant white formal shirt crafted from breathable cotton. Perfect for office and events.",
+      comments: [
+        "Crisp and elegant look.",
+        "Good stitching quality.",
+        "Fits true to size."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1588776814546-78f8f853d4e6?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1602510612516-d8cb8d70f1ec?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1591047139829-2502c28f0f85?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 9,
+      name: "Chronograph Sports Watch",
+      category: "Smart Watches",
+      price: "22,999",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1587400519568-1fe0329bfb2e?auto=format&fit=crop&q=80&w=1170",
+      rating: 4.8,
+      description:
+        "Durable sports chronograph with stopwatch functionality, water resistance, and bold design.",
+      comments: [
+        "Looks sporty and stylish!",
+        "The chronograph works great.",
+        "Sturdy and waterproof."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1609851111214-56a5d9c60b5c?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1595842449669-7ac9da01e4ce?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 10,
+      name: "Heavy Cotton Pullover Hoodie",
+      category: "Hoodies",
+      price: "5,899",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1738486260136-2db6e4d6202d?auto=format&fit=crop&q=80&w=1170",
+      rating: 4.3,
+      description:
+        "Premium heavy cotton pullover hoodie offering warmth, style, and long-lasting comfort.",
+      comments: [
+        "Perfect thickness for winters.",
+        "Color is vibrant and rich.",
+        "Good fit and cozy."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1601901626101-c3f836f88b54?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1618221709442-9a29d3f05b30?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1634751642603-9154aaf92743?auto=format&fit=crop&q=80&w=600"
+      ]
+    },
+    {
+      id: 11,
+      name: "Casio G-Shock GA-2100 Carbon Core",
+      category: "Watches",
+      price: "48,999",
+      qty: 1,
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVMzV9EMP0DDawJHN1CrlLbAUkjhYecLLIeA&s",
+      rating: 4.6,
+      description:
+        "Tough carbon-core G-Shock designed for adventure. Shock-resistant and waterproof.",
+      comments: [
+        "The durability is insane!",
+        "Love the matte finish.",
+        "Battery lasts forever."
+      ],
+      gallery: [
+        "https://m.media-amazon.com/images/I/81M4jXc3P3L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81jD3sbzAQL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81IhWl5BChL._AC_SL1500_.jpg"
+      ]
+    },
+    {
+      id: 12,
+      name: "Casual Oversized Hoodie",
+      category: "Hoodies",
+      price: "5,299",
+      qty: 1,
+      img: "https://images.unsplash.com/photo-1546052725-72b0b8b9f4b6?auto=format&fit=clip&q=80&w=500",
+      rating: 4.1,
+      description:
+        "Relaxed-fit oversized hoodie for effortless casual style and maximum comfort.",
+      comments: [
+        "Super comfy and stylish.",
+        "Runs slightly large.",
+        "Great for lounging."
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1552405462-5da656f0261e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1588932250351-36235af5c0f0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1641377061384-61e0ce81f717?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+      ]
+    },
+    {
+      id: 13,
+      name: "Apple Watch Series 9 (GPS, 45mm)",
+      category: "Smart Watches",
+      price: "165,000",
+      qty: 1,
+      img: "https://m.media-amazon.com/images/I/81C8zw3D4YL._AC_SL1500_.jpg",
+      rating: 4.9,
+      description:
+        "Advanced smartwatch with fitness tracking, blood oxygen monitoring, and ultra-bright Retina display.",
+      comments: [
+        "The best smartwatch on the market!",
+        "Seamless sync with iPhone.",
+        "Battery life improved."
+      ],
+      gallery: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfmdJhKfR8AfOITn7xlbEYr6C3E-8r3OI8FQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyIGWfJyxuXwIfAvS_dvmVTUdU3ecMlTeIbQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSxA0BXlKbC-b04Jg5k_UXwU7MoYOuATV2SQ&s"
+      ]
+    }
+  ];

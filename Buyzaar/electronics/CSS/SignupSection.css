@@ -1,0 +1,27 @@
+.signupbtn {
+  background-color: "white" !important;
+  color: "black" !important;
+  transition: "all 0.3s ease";
+  box-shadow: "0 0 15px rgba(0,224,255,0.6)";
+}
+
+.signup-btn:hover {
+  color: 'white';
+  background-color: black;
+}
+
+.x {
+  background-color: "white";
+  color: "black";
+}
+
+.pass-inp {
+  background-color: #112240;
+  border: transparent;
+  outline: none;
+}
+
+/* .pass-inp:focus {
+  border: 0;
+  border-color: transparent;
+} */

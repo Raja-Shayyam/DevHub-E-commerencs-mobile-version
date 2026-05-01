@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce | web-main replica</title>
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #EFF2F4;
+      display: flex;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* main container – exact width 1440px, relative positioning for absolute children */
+    .page {
+      position: relative;
+      width: 1440px;
+      background: #F7FAFC;
+      /* gray-100 */
+      min-height: 3570px;
+      /* covers up to footer (3242+324) */
+      margin: 0 auto;
+      box-shadow: 0 0 0 1px #DEE2E7;
+      /* just to see outline, remove later */
+    }
+
+    /* ===== global text styles ===== */
+    .text-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      color: #1C1C1C;
+    }
+
+    .text-normal {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+      color: #8B96A5;
+    }
+
+    .text-small {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+      color: #8B96A5;
+    }
+
+    .text-h4 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.2px;
+      color: #1C1C1C;
+    }
+
+    .text-h3 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: -0.2px;
+      color: #1C1C1C;
+    }
+
+    /* ===== header (top:0) ===== */
+    .header {
+      position: absolute;
+      width: 1440px;
+      height: 86px;
+      left: 0;
+      top: 0;
+      background: #FFFFFF;
+      z-index: 10;
+    }
+
+    /* logo */
+    .logo {
+      position: absolute;
+      left: 9.03%;
+      top: 23.26%;
+      bottom: 23.26%;
+      width: 130px;
+      background: transparent;
+      font-weight: 700;
+      font-size: 24px;
+      color: #0D6EFD;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      background: #0D6EFD;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+
+    /* search form */
+    .search-form {
+      position: absolute;
+      left: 22.64%;
+      right: 31.18%;
+      top: 25.58%;
+      bottom: 27.91%;
+      display: flex;
+      background: #FFFFFF;
+      border: 1px solid #0D6EFD;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .search-category {
+      width: 30%;
+      border-right: 1px solid #DEE2E7;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #1C1C1C;
+      background: #FFFFFF;
+    }
+
+    .search-category span {
+      margin-right: 4px;
+      color: #8B96A5;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      padding: 0 10px;
+      font-family: 'Inter';
+      font-size: 16px;
+      color: #1C1C1C;
+    }
+
+    .search-input::placeholder {
+      color: #8B96A5;
+    }
+
+    .search-btn {
+      width: 80px;
+      background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+      color: white;
+      border: none;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* actions (profile, message, orders, cart) */
+    .actions {
+      position: absolute;
+      left: 75%;
+      right: 9.17%;
+      top: 29.07%;
+      bottom: 23.26%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      color: #8B96A5;
+    }
+
+    .action-icon {
+      font-size: 22px;
+      color: #8B96A5;
+      margin-bottom: 2px;
+    }
+
+    /* ===== navbar (top:86) ===== */
+    .navbar {
+      position: absolute;
+      width: 1440px;
+      height: 56px;
+      left: 0;
+      top: 86px;
+      background: #FFFFFF;
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+      display: flex;
+      align-items: center;
+      padding: 0 130px;
+      gap: 32px;
+      z-index: 10;
+    }
+
+    .nav-item {
+      font-weight: 500;
+      color: #1C1C1C;
+      white-space: nowrap;
+    }
+
+    .nav-item.active {
+      color: #0D6EFD;
+    }
+
+    .nav-icon {
+      margin-right: 8px;
+    }
+
+    .ship-to {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1C1C1C;
+    }
+
+    /* ===== main section (top:162) ===== */
+    .main-section {
+      position: absolute;
+      width: 1180px;
+      height: 400px;
+      left: 130px;
+      top: 162px;
+      background: #FFFFFF;
+      border: 1px solid #DEE2E7;
+      border-radius: 6px;
+      display: flex;
+      z-index: 5;
+    }
+
+    /* left menu (250px) */
+    .category-menu {
+      width: 250px;
+      border-right: 1px solid #E0E0E0;
+      padding: 16px 0;
+    }
+
+    .menu-item {
+      padding: 8px 16px;
+      font-size: 16px;
+      color: #505050;
+    }
+
+    .menu-item.active {
+      background: #E5F1FF;
+      font-weight: 500;
+      color: #1C1C1C;
+    }
+
+    /* center banner (665px) */
+    .banner {
+      width: 665px;
+      background: #E3F0FF;
+      padding: 48px 32px;
+      position: relative;
+    }
+
+    .banner h2 {
+      font-size: 28px;
+      font-weight: 400;
+      color: #1C1C1C;
+    }
+
+    .banner h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1C1C1C;
+      margin: 8px 0 16px;
+    }
+
+    .btn-white {
+      background: white;
+      border: 1px solid white;
+      box-shadow: 0 1px 2px rgba(56, 56, 56, 0.08);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-weight: 500;
+      color: #1C1C1C;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    /* right panel (200px) */
+    .user-panel {
+      width: 200px;
+      padding: 16px;
+    }
+
+    .user-greeting {
+      background: #E3F0FF;
+      border-radius: 6px;
+      padding: 16px 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      background: #91B1E7;
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+
+    .btn-blue {
+      background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+      border-radius: 6px;
+      color: white;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 13px;
+      margin: 8px 0 4px;
+    }
+
+    .btn-outline {
+      border: 1px solid #DEE2E7;
+      border-radius: 6px;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 13px;
+      color: #0D6EFD;
+      background: white;
+    }
+
+    .offer-block {
+      background: #F38332;
+      border-radius: 6px;
+      padding: 16px;
+      color: white;
+      margin: 12px 0 8px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .offer-block.green {
+      background: #55BDC4;
+    }
+
+    /* ===== deals and offers (top:592) ===== */
+    .deals-section {
+      position: absolute;
+      width: 1180px;
+      height: 240px;
+      left: 130px;
+      top: 592px;
+      background: #FFFFFF;
+      border: 1px solid #DEE2E7;
+      border-radius: 6px;
+      display: flex;
+      padding: 16px 24px;
+      gap: 24px;
+    }
+
+    .deal-timer {
+      width: 200px;
+    }
+
+    .deal-timer h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+    }
+
+    .deal-timer p {
+      color: #8B96A5;
+      margin-bottom: 16px;
+    }
+
+    .timer-digits {
+      display: flex;
+      gap: 8px;
+    }
+
+    .time-box {
+      background: #606060;
+      border-radius: 4px;
+      width: 45px;
+      height: 50px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .time-box span:first-child {
+      font-size: 16px;
+    }
+
+    .time-box span:last-child {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .deal-products {
+      flex: 1;
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+    }
+
+    .deal-product {
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .product-image {
+      width: 140px;
+      height: 140px;
+      background: #F7F7F7;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+    }
+
+    .badge-red {
+      background: #FFE3E3;
+      color: #EB001B;
+      font-size: 14px;
+      padding: 4px 12px;
+      border-radius: 29px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    /* ===== home & outdoor / consumer electronics (top:852 & 1129) ===== */
+    .category-block {
+      position: absolute;
+      width: 1180px;
+      height: 257px;
+      left: 130px;
+      background: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      display: flex;
+    }
+
+    .block1 {
+      top: 852px;
+    }
+
+    .block2 {
+      top: 1129px;
+    }
+
+    .left-promo {
+      width: 280px;
+      background: #FFE0B0;
+      /* placeholder, actual image */
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left-promo h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .left-promo .btn-white {
+      align-self: flex-start;
+    }
+
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .grid-item {
+      border-left: 1px solid #E0E0E0;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .grid-item:first-child {
+      border-left: none;
+    }
+
+    .product-thumb {
+      width: 100%;
+      height: 100px;
+      background: #F7F7F7;
+      margin-bottom: 8px;
+    }
+
+    /* ===== inquiry section (top:1406) ===== */
+    .inquiry-section {
+      position: absolute;
+      width: 1180px;
+      height: 420px;
+      left: 130px;
+      top: 1406px;
+      background: linear-gradient(94.99deg, #2C7CF1 7.19%, rgba(0, 209, 255, 0.5) 89.49%);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      color: white;
+    }
+
+    .inquiry-left {
+      width: 50%;
+    }
+
+    .inquiry-left h2 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 39px;
+      margin-bottom: 24px;
+    }
+
+    .inquiry-left p {
+      font-size: 16px;
+      line-height: 24px;
+      opacity: 0.9;
+    }
+
+    .inquiry-right {
+      width: 50%;
+      background: white;
+      border-radius: 6px;
+      padding: 32px;
+      color: #1C1C1C;
+      box-shadow: 0 1px 2px rgba(56, 56, 56, 0.25);
+    }
+
+    .inquiry-right h4 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .form-input {
+      width: 100%;
+      border: 1px solid #DEE2E7;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-family: 'Inter';
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ===== recommended items (top:1856) ===== */
+    .recommend-section {
+      position: absolute;
+      width: 1180px;
+      left: 130px;
+      top: 1856px;
+    }
+
+    .recommend-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .rec-card {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .rec-image {
+      width: 100%;
+      height: 140px;
+      background: #F7F7F7;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .rec-price {
+      font-weight: 600;
+      color: #1C1C1C;
+      font-size: 16px;
+    }
+
+    .rec-desc {
+      font-size: 16px;
+      color: #8B96A5;
+      margin-top: 4px;
+    }
+
+    /* ===== extra services (top:2582) ===== */
+    .services-section {
+      position: absolute;
+      width: 1180px;
+      left: 130px;
+      top: 2582px;
+    }
+
+    .services-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-bg {
+      height: 120px;
+      background: #D3D3D3;
+      opacity: 0.5;
+    }
+
+    .service-icon {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      width: 55px;
+      height: 55px;
+      background: #D1E7FF;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #1C1C1C;
+    }
+
+    .service-title {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-weight: 500;
+    }
+
+    /* ===== suppliers by region (top:2868) ===== */
+    .region-section {
+      position: absolute;
+      width: 1180px;
+      left: 130px;
+      top: 2868px;
+    }
+
+    .region-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .region-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .flag-placeholder {
+      width: 24px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .region-name {
+      font-weight: 400;
+      color: #1C1C1C;
+    }
+
+    .region-url {
+      font-size: 13px;
+      color: #8B96A5;
+    }
+
+    /* ===== newsletter (top:3052) ===== */
+    .newsletter {
+      position: absolute;
+      width: 1440px;
+      height: 190px;
+      left: 0;
+      top: 3052px;
+      background: #EFF2F4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .newsletter h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+    }
+
+    .newsletter p {
+      font-size: 16px;
+      color: #606060;
+      margin-bottom: 24px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      width: 300px;
+      border: 1px solid #DEE2E7;
+      border-radius: 6px;
+      padding: 12px 16px;
+      background: white;
+    }
+
+    .newsletter-form button {
+      background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+      border: none;
+      border-radius: 6px;
+      padding: 0 24px;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* ===== footer (top:3242) ===== */
+    .footer {
+      position: absolute;
+      width: 1440px;
+      height: 324px;
+      left: 0;
+      top: 3242px;
+      background: #FFFFFF;
+      padding: 48px 130px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col h4 {
+      font-weight: 500;
+      font-size: 16px;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: #8B96A5;
+      font-size: 16px;
+    }
+
+    .app-badge {
+      width: 124px;
+      height: 42px;
+      background: #1C1C1C;
+      border-radius: 6px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      background: #BDC4CD;
+      border-radius: 50%;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #DEE2E7;
+      margin-top: 32px;
+      padding-top: 24px;
+      color: #606060;
+    }
+
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* placeholder image backgrounds */
+    .placeholder-img {
+      background: #E0E0E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8B96A5;
+      font-size: 12px;
+    }
+
+    /* some extra adjustments */
+    .text-small {
+      font-size: 13px;
+      color: #8B96A5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo"><span>B</span>rand</div>
+      <div class="search-form">
+        <div class="search-category"><span>All category</span> ⌵</div>
+        <input class="search-input" type="text" placeholder="Search">
+        <button class="search-btn">🔍</button>
+      </div>
+      <div class="actions">
+        <div class="action-item"><span class="action-icon">👤</span> Profile</div>
+        <div class="action-item"><span class="action-icon">✉️</span> Message</div>
+        <div class="action-item"><span class="action-icon">📦</span> Orders</div>
+        <div class="action-item"><span class="action-icon">🛒</span> My cart</div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="nav-item"><span class="nav-icon">☰</span> All category</div>
+      <div class="nav-item">Hot offers</div>
+      <div class="nav-item">Gift boxes</div>
+      <div class="nav-item">Projects</div>
+      <div class="nav-item">Menu item</div>
+      <div class="nav-item">Help</div>
+      <div class="ship-to">Ship to: <strong>Germany</strong> ⌵</div>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <div class="main-section">
+      <div class="category-menu">
+        <div class="menu-item active">Automobiles</div>
+        <div class="menu-item">Clothes and wear</div>
+        <div class="menu-item">Home interiors</div>
+        <div class="menu-item">Computer and tech</div>
+        <div class="menu-item">Tools, equipments</div>
+        <div class="menu-item">Sports and outdoor</div>
+        <div class="menu-item">Animal and pets</div>
+        <div class="menu-item">Machinery tools</div>
+        <div class="menu-item">More category</div>
+      </div>
+      <div class="banner">
+        <h2>Latest trending</h2>
+        <h1>Electronic items</h1>
+        <a href="#" class="btn-white">Learn more</a>
+      </div>
+      <div class="user-panel">
+        <div class="user-greeting">
+          <div class="avatar"></div>
+          <div>Hi, user<br>let's get started</div>
+          <div class="btn-blue">Join now</div>
+          <div class="btn-outline">Log in</div>
+        </div>
+        <div class="offer-block">Get US $10 off with a new supplier</div>
+        <div class="offer-block green">Send quotes with supplier preferences</div>
+      </div>
+    </div>
+
+    <!-- DEALS AND OFFERS -->
+    <div class="deals-section">
+      <div class="deal-timer">
+        <h4>Deals and offers</h4>
+        <p>Hygiene equipments</p>
+        <div class="timer-digits">
+          <div class="time-box"><span>04</span><span>Days</span></div>
+          <div class="time-box"><span>13</span><span>Hour</span></div>
+          <div class="time-box"><span>34</span><span>Min</span></div>
+          <div class="time-box"><span>56</span><span>Sec</span></div>
+        </div>
+      </div>
+      <div class="deal-products">
+        <div class="deal-product">
+          <div class="product-image placeholder-img">📷</div>
+          <div>Smart watches</div>
+          <div class="badge-red">$25</div>
+        </div>
+        <div class="deal-product">
+          <div class="product-image placeholder-img">📷</div>
+          <div>Laptops</div>
+          <div class="badge-red">$15</div>
+        </div>
+        <div class="deal-product">
+          <div class="product-image placeholder-img">📷</div>
+          <div>GoPro cameras</div>
+          <div class="badge-red">$40</div>
+        </div>
+        <div class="deal-product">
+          <div class="product-image placeholder-img">📷</div>
+          <div>Headphones</div>
+          <div class="badge-red">$25</div>
+        </div>
+        <div class="deal-product">
+          <div class="product-image placeholder-img">📷</div>
+          <div>Canon cameras</div>
+          <div class="badge-red">$25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME AND OUTDOOR (block1) -->
+    <div class="category-block block1">
+      <div class="left-promo" style="background:#FFE0B0;">
+        <h3>Home and outdoor</h3>
+        <a href="#" class="btn-white">Source now</a>
+      </div>
+      <div class="product-grid">
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Kitchen mixer <strong>$100</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Blenders <strong>$30</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Coffee maker <strong>$50</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Smart watches <strong>$10</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSUMER ELECTRONICS (block2) -->
+    <div class="category-block block2">
+      <div class="left-promo" style="background:#666666; color:white;">
+        <h3>Consumer electronics and gadgets</h3>
+        <a href="#" class="btn-white">Source now</a>
+      </div>
+      <div class="product-grid">
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Smart watches <strong>$10</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Cameras <strong>$5</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Headphones <strong>$10</strong>
+        </div>
+        <div class="grid-item">
+          <div class="product-thumb placeholder-img">📷</div> Smart watches <strong>$20</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- INQUIRY SECTION -->
+    <div class="inquiry-section">
+      <div class="inquiry-left">
+        <h2>An easy way to send requests to all suppliers</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      </div>
+      <div class="inquiry-right">
+        <h4>Send quote to suppliers</h4>
+        <input class="form-input" type="text" placeholder="What item you need?">
+        <div class="form-row">
+          <input class="form-input" style="flex:1;" placeholder="Quantity">
+          <select class="form-input" style="width: auto;">
+            <option>Pcs</option>
+          </select>
+        </div>
+        <textarea class="form-input" rows="2" placeholder="More details"></textarea>
+        <button class="btn-submit">Send inquiry</button>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED ITEMS -->
+    <div class="recommend-section">
+      <div class="recommend-title">Recommended items</div>
+      <div class="recommend-grid">
+        <div class="rec-card">
+          <div class="rec-image placeholder-img">📷</div>
+          <div class="rec-price">$10.30</div>
+          <div class="rec-desc">T-shirts with multiple colors, for men</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-image placeholder-img">📷</div>
+          <div class="rec-price">$10.30</div>
+          <div class="rec-desc">Jeans shorts for men blue color</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-image placeholder-img">📷</div>
+          <div class="rec-price">$12.50</div>
+          <div class="rec-desc">Brown winter coat medium size</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-image placeholder-img">📷</div>
+          <div class="rec-price">$34.00</div>
+          <div class="rec-desc">Jeans bag for travel for men</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-image placeholder-img">📷</div>
+          <div class="rec-price">$99.00</div>
+          <div class="rec-desc">Leather wallet</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUR EXTRA SERVICES -->
+    <div class="services-section">
+      <div class="services-title">Our extra services</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-bg"></div>
+          <div class="service-icon">🔍</div>
+          <div class="service-title">Canora camera black, 100x zoom<br><span class="text-small">$9.99</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-bg"></div>
+          <div class="service-icon">📦</div>
+          <div class="service-title">Headset for gaming with mic<br><span class="text-small">$8.99</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-bg"></div>
+          <div class="service-icon">✈️</div>
+          <div class="service-title">Smartwatch silver color modern<br><span class="text-small">$10.30</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-bg"></div>
+          <div class="service-icon">🛡️</div>
+          <div class="service-title">Blue wallet for men leather<br><span class="text-small">$10.30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPLIERS BY REGION -->
+    <div class="region-section">
+      <div class="region-title">Suppliers by region</div>
+      <div class="region-grid">
+        <div class="region-item"><span class="flag-placeholder">🇦🇪</span>
+          <div>
+            <div class="region-name">Arabic Emirates</div>
+            <div class="region-url">shqiparane.ae</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇦🇺</span>
+          <div>
+            <div class="region-name">Australia</div>
+            <div class="region-url">shqiparane.ae</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇺🇸</span>
+          <div>
+            <div class="region-name">United States</div>
+            <div class="region-url">shqiparane.ae</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇷🇺</span>
+          <div>
+            <div class="region-name">Russia</div>
+            <div class="region-url">shqiparane.ru</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇮🇹</span>
+          <div>
+            <div class="region-name">Italy</div>
+            <div class="region-url">shqiparane.it</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇩🇰</span>
+          <div>
+            <div class="region-name">Denmark</div>
+            <div class="region-url">denmark.com.dk</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇫🇷</span>
+          <div>
+            <div class="region-name">France</div>
+            <div class="region-url">france.ua</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇦🇪</span>
+          <div>
+            <div class="region-name">Arab Emirates</div>
+            <div class="region-url">afriqan.ae</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇨🇳</span>
+          <div>
+            <div class="region-name">China</div>
+            <div class="region-url">chine.za</div>
+          </div>
+        </div>
+        <div class="region-item"><span class="flag-placeholder">🇬🇧</span>
+          <div>
+            <div class="region-name">Great Britain</div>
+            <div class="region-url">greatbritain.co.uk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+      <h3>Subscribe on our newsletter</h3>
+      <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Email">
+        <button>Subscribe</button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-col">
+        <h4>Brand</h4>
+        <div style="max-width:200px;">Best information about the company goes here but now learn more!</div>
+        <div class="social-icons">
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">About Us</a><a href="#">Find store</a><a href="#">Categories</a><a href="#">Blogs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Partnership</h4>
+        <a href="#">About Us</a><a href="#">Find store</a><a href="#">Categories</a><a href="#">Blogs</a><a
+          href="#">Information</a><a href="#">Help Center</a><a href="#">Money Refund</a><a href="#">Shipping</a><a
+          href="#">Contact us</a>
+      </div>
+      <div class="footer-col">
+        <h4>For users</h4>
+        <a href="#">Login</a><a href="#">Register</a><a href="#">Settings</a><a href="#">My Orders</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get app</h4>
+        <div class="app-badge">App Store</div>
+        <div class="app-badge">Google Play</div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2023 Ecommerce.</div>
+        <div class="lang-selector">
+          <span class="flag-placeholder" style="width:20px;">🇺🇸</span> English ⌵
+        </div>
+      </div>
+    </div>
+
+    <!-- extra spacer to match absolute positions (some elements cover exactly) -->
+  </div>
+</body>
+
+</html>
